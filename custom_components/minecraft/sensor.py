@@ -26,6 +26,7 @@ ATTR_PLAYERS,
 
 ATTR_SEED,
 ATTR_MANSION_LOCATION,
+ATTR_DAYTIME,
 )
 
 async def async_setup_platform(
@@ -127,6 +128,8 @@ class MinecraftSensor(Entity):
         try:
             self._seed                = self._hass.data[DOMAIN_DATA][ATTR_SEED]
             self._mansion_location    = self._hass.data[DOMAIN_DATA][ATTR_MANSION_LOCATION]
+            self._daytime    = self._hass.data[DOMAIN_DATA][ATTR_DAYTIME]
+            
 
         except:
             # RCON credentials missing
@@ -178,6 +181,7 @@ class MinecraftSensor(Entity):
             attributes.update({
                 ATTR_SEED: self._seed,
                 ATTR_MANSION_LOCATION: self._mansion_location,
+                ATTR_DAYTIME: self._daytime,
             })
         except:
             # RCON credentials missing
