@@ -58,6 +58,7 @@ ATTR_PLAYERS           = 'players'
 # Rcon sensors
 ATTR_SEED              = 'seed'
 ATTR_MANSION_LOCATION  = 'mansion_location'
+ATTR_DAYTIME           = 'daytime'
 
 # Sensor types
 SENSOR_TYPES = {
@@ -76,4 +77,5 @@ SENSOR_TYPES = {
     ATTR_PLAYERS:              'players',
     ATTR_SEED:                 'seed',
     ATTR_MANSION_LOCATION:     'mansion_location',
+    ATTR_DAYTIME:              'daytime',
 }
