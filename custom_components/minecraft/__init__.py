@@ -31,6 +31,7 @@ from .const import (
     CONF_SENSOR,
     ATTR_SEED,
     ATTR_MANSION_LOCATION,
+    ATTR_DAYTIME,
     SENSOR_TYPES,
 )
 
@@ -161,7 +162,8 @@ class MinecraftServerSensor:
                 with RCON(self._host, self._rcon_port) as client:
                     client.login(self._rcon_pw)
                     self._hass.data[DOMAIN_DATA][ATTR_SEED]             = client.seed
-                    self._hass.data[DOMAIN_DATA][ATTR_MANSION_LOCATION] = client.locate('Mansion')
+                    self._hass.data[DOMAIN_DATA][ATTR_MANSION_LOCATION] = client.locate('Mansion')     
+                    self._hass.data[DOMAIN_DATA][ATTR_DAYTIME] = client.time.query(DAYTIME)
             except:
                 _LOGGER.info('Retrieving RCON data failed')
 
